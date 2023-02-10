@@ -1,0 +1,57 @@
+{
+   "clang": {
+       "compilers": {
+           "C": "/usr/bin/clang",
+           "CXX": "/usr/bin/clang++"
+       },
+       "query_driver" : "/usr/bin/clang++",
+       "generator": "Ninja"
+   },
+   "ios-device": {
+       "cmake_usr_args": {
+           "CMAKE_SYSTEM_NAME": "iOS",
+           "MB_IOS_SDK": "device"
+       },
+      "generator": "Xcode",
+      "query_driver" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+      "build_type_aware": false
+   },
+   "android-arm64-v8a-ndk-r25b": {
+       "toolchain_file": "~/.conan/data/AndroidNdk/r25b/microblink/stable/package/13033aa1a9db6bdc6849cb2d5012d7a6b76359f5/build/cmake/android.toolchain.cmake",
+       "cmake_usr_args": {
+           "ANDROID_ABI": "arm64-v8a",
+           "ANDROID_NDK": "~/.conan/data/AndroidNdk/r25b/microblink/stable/package/13033aa1a9db6bdc6849cb2d5012d7a6b76359f5",
+           "ANDROID_NDK_REVISION": "180",
+           "ANDROID_PLATFORM": "android-21",
+           "ANDROID_SDK": "~/android-sdks",
+           "ANDROID_STL": "c++_static",
+           "ANDROID_TOOLCHAIN": "clang",
+           "CMAKE_ANDROID_ARCH_ABI": "arm64-v8a",
+           "CMAKE_ANDROID_NDK": "~/.conan/data/AndroidNdk/r25b/microblink/stable/package/13033aa1a9db6bdc6849cb2d5012d7a6b76359f5",
+           "CMAKE_ANDROID_NDK_TOOLCHAIN_VERSION": "clang",
+           "CMAKE_ANDROID_STL_TYPE": "c++_static",
+           "CMAKE_SYSROOT": "~/.conan/data/AndroidNdk/r25b/microblink/stable/package/13033aa1a9db6bdc6849cb2d5012d7a6b76359f5/sysroot",
+           "CMAKE_SYSTEM_NAME": "Android",
+           "CMAKE_SYSTEM_VERSION": "21"
+       },
+       "query_driver" : "~/.conan/data/AndroidNdk/r25b/microblink/stable/package/13033aa1a9db6bdc6849cb2d5012d7a6b76359f5/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++",
+       "generator": "Ninja"
+   },
+   "emscripten-3.1.17-advanced-simd": {
+       "toolchain_file": "~/.conan/data/emsdk_installer/3.1.17/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+       "environment_variables": {
+           "EM_CONFIG": "/Users/dodo/.conan/data/emsdk_installer/3.1.17/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/.emscripten",
+           "EM_CACHE": "/Users/dodo/.conan/data/emsdk_installer/3.1.17/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/.emscripten_cache"
+       },
+       "cmake_usr_args": {
+           "MB_EMSCRIPTEN_EMRUN_BROWSER": "chrome",
+           "MB_EMSCRIPTEN_EMRUN_SILENCE_TIMEOUT": "300",
+           "MB_EMSCRIPTEN_EMRUN_SERVE_AFTER_CLOSE": "ON",
+           "MB_EMSCRIPTEN_EMRUN_BROWSER_ARGS": "--remote-debugging-port=9622",
+           "MB_EMSCRIPTEN_ADVANCED_FEATURES": "ON",
+           "MB_EMSCRIPTEN_SIMD": "ON"
+       },
+       "query_driver" : "~/.conan/data/emsdk_installer/3.1.17/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/upstream/emscripten/em++",
+       "generator": "Ninja"
+   }
+}

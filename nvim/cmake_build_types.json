@@ -1,0 +1,20 @@
+{
+    "debug" : {
+        "build_type" : "Debug",
+        "cmake_usr_args" : {
+            "MB_TREAT_WARNINGS_AS_ERRORS": "OFF"
+        }
+    },
+    "dev-release": {
+        "build_type" : "Release",
+        "cmake_usr_args": {
+            "MB_DEV_RELEASE" : "ON"
+        }
+    },
+    "release": {
+        "build_type" : "Release",
+        "cmake_usr_args": {
+            "MB_DEV_RELEASE" : "OFF"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+snippet vimspectorpython
+	{
+		"adapter": "debugpy",
+		"configuration": {
+			"type": "python",
+			"request": "launch",
+			"cwd": "\${workspaceRoot}",
+			"python": "/usr/local/bin/python3",
+			"program": "\${workspaceRoot}/${0}"
+		}
+	}
+
+snippet vimspectorcpp
+	{
+		"configurations": {
+			"<Name>": {
+				"adapter": "CodeLLDB",
+				"configuration": {
+					"Mimode": "",
+					"args": [],
+					"cwd": "${workspaceRoot}",
+					"program": "/Users/nb-dcubelic/Work/Microblink/Builds/<repo-name>/<kit>/<build-type>/bin/<binary-name>",
+					"request": "launch",
+					"type": ""
+				}
+			}
+		}
+	}
