@@ -1,5 +1,5 @@
 function DefineColors( color )
-    color = color or 'monokai'
+    color = color or 'tokyonight-night'
     vim.cmd.colorscheme( color )
 
     vim.opt.termguicolors = true
@@ -9,4 +9,6 @@ end
 -- Why?!?
 DefineColors()
 DefineColors()
+
+
 

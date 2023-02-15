@@ -91,21 +91,21 @@ lsp.setup_nvim_cmp({
     -- local opts = { buffer = bufnr, remap = false }
     local opts = {}
 
-    vim.keymap.set( "n", "\\", vim.lsp.buf.definition, opts )
-    vim.keymap.set( "n", "K", vim.lsp.buf.hover, opts )
-    vim.keymap.set( "n", '<leader>D', vim.lsp.buf.type_definition, opts )
-    vim.keymap.set( "n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts )
-    vim.keymap.set( "n", "<leader>e", vim.diagnostic.open_float, opts )
-    vim.keymap.set( "n", "[d", vim.diagnostic.goto_prev, opts )
-    vim.keymap.set( "n", "]d", vim.diagnostic.goto_next, opts )
-    vim.keymap.set( "n", "<leader>yF", vim.lsp.buf.code_action, opts )
-    vim.keymap.set( "n", "<leader>yf", vim.lsp.buf.references, opts )
-    vim.keymap.set( "n", "<leader>yr", vim.lsp.buf.rename, opts )
-    vim.keymap.set( "n", "<leader>=", vim.lsp.buf.format, opts )
-    vim.keymap.set( "v", "<leader>=", vim.lsp.buf.format, opts )
+    Mapper.map( 'n', '\\'         , vim.lsp.buf.definition      , opts, 'LSP', 'lsp_definitions'     , 'Goto definition'      )
+    Mapper.map( 'n', 'K'          , vim.lsp.buf.hover           , opts, 'LSP', 'lsp_hover'           , 'LSP help'             )
+    Mapper.map( 'n', '<leader>D'  , vim.lsp.buf.type_definition , opts, 'LSP', 'lsp_type_definition' , 'LSP type definitinos' )
+    Mapper.map( 'n', '<leader>vws', vim.lsp.buf.workspace_symbol, opts, 'LSP', 'lsp_workspace_symbol', 'LSP workspace symbol' )
+    Mapper.map( 'n', '<leader>e'  , vim.diagnostic.open_float   , opts, 'LSP', 'lsp_workspace_symbol', 'Show LSP diadnostic'  )
+    Mapper.map( 'n', '[d'         , vim.diagnostic.goto_prev    , opts, 'LSP', 'lsp_goto_prev'       , 'LSP goto previous'    )
+    Mapper.map( 'n', ']d'         , vim.diagnostic.goto_next    , opts, 'LSP', 'lsp_goto_next'       , 'LSP goto next'        )
+    Mapper.map( 'n', '<leader>yF' , vim.lsp.buf.code_action     , opts, 'LSP', 'lsp_code_action'     , 'LSP code action'      )
+    Mapper.map( 'n', '<leader>yf' , vim.lsp.buf.references      , opts, 'LSP', 'lsp_references'      , 'LSP references'       )
+    Mapper.map( 'n', '<leader>yr' , vim.lsp.buf.rename          , opts, 'LSP', 'lsp_rename'          , 'LSP rename'           )
+    Mapper.map( 'n', '<leader>='  , vim.lsp.buf.format          , opts, 'LSP', 'lsp_format'          , 'LSP format'           )
+    Mapper.map( 'v', '<leader>='  , vim.lsp.buf.format          , opts, 'LSP', 'lsp_format_visual'   , 'LSP format'           )
 
     -- if client.name == 'clangd' then
-        vim.keymap.set( "n", "<leader>o", [[:ClangdSwitchSourceHeader<cr>]], opts )
+        Mapper.map( 'n', '<leader>o', [[:ClangdSwitchSourceHeader<cr>]], opts, 'LSP', 'lsp_switch_source_header', 'Switch between source and header file' )
     -- end
 -- end)
 
@@ -115,4 +115,4 @@ vim.diagnostic.config({
     virtual_text = true,
 })
 
-vim.keymap.set( "n", "<leader>yy", [[:LspRestart<cr>]] )
+Mapper.map( 'n', '<leader>o', [[:LspRestart<cr>]], opts, 'LSP', 'lsp_restart', 'Restart LSP' )

@@ -7,5 +7,24 @@ require( 'nvim-tree' ).setup({
     },
 })
 
-vim.keymap.set( "n", "<leader>n", vim.cmd.NvimTreeToggle )
-vim.keymap.set( "n", "<leader>N", vim.cmd.NvimTreeFindFile )
+local nvim_tree_events = require('nvim-tree.events')
+local bufferline_api = require('bufferline.api')
+
+local function get_tree_size()
+    return require'nvim-tree.view'.View.width
+end
+
+nvim_tree_events.subscribe('TreeOpen', function()
+    bufferline_api.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe('Resize', function()
+    bufferline_api.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe('TreeClose', function()
+    bufferline_api.set_offset(0)
+end)
+
+Mapper.map( 'n', '<leader>n', vim.cmd.NvimTreeToggle, {}, 'NvimTree', 'nvim_tree_toggle', 'Toggle NvimTree' )
+Mapper.map( 'n', '<leader>N', vim.cmd.NvimTreeFindFile, {}, 'NvimTree', 'nvim_find_file', 'NvimTree find current file' )

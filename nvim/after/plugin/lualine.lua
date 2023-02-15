@@ -22,7 +22,7 @@ end
 
 lualine.setup({
     options = {
-        theme = 'material'
+        theme = 'tokyonight'
     },
     sections = {
         lualine_c = { { 'filename', path = 1 } },

@@ -1,58 +1,36 @@
--- -- single space should do nothing
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+Mapper = require("nvim-mapper")
 
--- Refresh file
-vim.keymap.set( "n",  "<leader>r", vim.cmd.checktime, { silent = true } )
+Mapper.map( 'n', '<space>'      , '<nop>'                                , { silent = true }, 'Utils', 'space_nop'            , 'Single space should do nothing'                      )
+Mapper.map( 'n', '<leader>r'    , vim.cmd.checktime                      , { silent = true }, 'Utils', 'refresh_file'         , 'Refresh file'                                        )
+Mapper.map( 'n', 'Q'            , '<nop>'                                , { silent = true }, 'Utils', 'prevent_ex_mode'      , 'Prevent accidental entering to Ex mode'              )
+Mapper.map( 'n', '<leader>w'    , [[:w<cr>]]                             , { silent = true }, 'Utils', 'save_buffer'          , 'Save current buffer'                                 )
+Mapper.map( 'n', '<leader>O'    , '<C-^>'                                , { silent = true }, 'Utils', 'alternate_files'      , 'Alternate between last two files in the same window' )
+Mapper.map( 'n', '<leader>h'    , vim.cmd.noh                            , { silent = true }, 'Utils', 'search_highlights_off', 'Turn off search highlights'                          )
+Mapper.map( 'n', '<leader>ss'   , [[:syntax sync fromstart<cr>]]         , { silent = true }, 'Utils', 'sync_syntax_engine'   , 'Synchronize syntax engine'                           )
+Mapper.map( 'n', '<leader><c-a>', 'ggVG'                                 , { silent = true }, 'Utils', 'select_all'           , 'Select all in normal mode'                           )
+Mapper.map( 'n', '<leader>jp'   , [[:%!python -m json.tool<cr>]]         , { silent = true }, 'Utils', 'prettify_json'        , 'Pretty-print JSON'                                   )
+Mapper.map( 'n', '<leader>cu'   , [[:sp term://python3 -m mbconan %<cr>]], { silent = true }, 'Utils', 'mbconan'              , 'Conan update'                                        )
 
--- Tab navigation
-vim.keymap.set( "n",  "{",  vim.cmd.tabprev, { silent = true } )
-vim.keymap.set( "n",  "}",  vim.cmd.tabnext, { silent = true } )
-vim.keymap.set( "n",  "<leader><c-w>", vim.cmd.tabclose, { silent = true } )
+Mapper.map( 'n', '<leader>o', '<nop>', { silent = true }, 'LSP', 'ignore_header_source_switch', 'Ignore header/source switch if LSP is not attached' )
 
--- prevent accidental entering to Ex mode
-vim.keymap.set( "n", "Q", "<nop>" )
+Mapper.map( 'v', 'J'    , ":m '>+1<CR>gv=gv", { silent = true }, 'Navigation', 'move_selected_text_up'    , 'User J to move selected text down'            )
+Mapper.map( 'v', 'K'    , ":m '<-2<CR>gv=gv", { silent = true }, 'Navigation', 'move_selected_text_down'  , 'User K to move selected text up'              )
+Mapper.map( 'n', '<C-d>', '<C-d>zz'         , { silent = true }, 'Navigation', 'center_cursor_down'       , 'Center cursor when doing half page jump down' )
+Mapper.map( 'n', '<C-u>', '<C-u>zz'         , { silent = true }, 'Navigation', 'center_cursor_up'         , 'Center cursor when doing half page jump up'   )
+Mapper.map( 'n', 'n'    , 'nzzzv'           , { silent = true }, 'Navigation', 'center_cursor_search'     , 'Center cursor when searching next'            )
+Mapper.map( 'n', 'N'    , 'Nzzzv'           , { silent = true }, 'Navigation', 'center_cursor_search_prev', 'Center cursor when searching previous'        )
 
--- Use space w for saving
-vim.keymap.set( "n", "<leader>w", [[:w<cr>]] )
+Mapper.map( 'x', '<leader>Y', '"+y', { silent = true }, 'Clipboard', 'copy_to_clipboard'    , 'Copy to system clipboard'    )
+Mapper.map( 'x', '<leader>y', '"+y', { silent = true }, 'Clipboard', 'copy_to_clipboard2'   , 'Copy to system clipboard'    )
+Mapper.map( 'n', '<leader>Y', '"+y', { silent = true }, 'Clipboard', 'copy_to_clipboard3'   , 'Copy to system clipboard'    )
+Mapper.map( 'n', '<leader>y', '"+y', { silent = true }, 'Clipboard', 'copy_to_clipboard4'   , 'Copy to system clipboard'    )
+Mapper.map( 'x', '<leader>D', '"+d', { silent = true }, 'Clipboard', 'clipboard'            , '"+d"'                        )
+Mapper.map( 'x', '<leader>p', '"+p', { silent = true }, 'Clipboard', 'paste_from_clipboard' , 'Paste from system clipboard' )
+Mapper.map( 'x', '<leader>P', '"+P', { silent = true }, 'Clipboard', 'paste_from_clipboard2', 'Paste from system clipboard' )
+Mapper.map( 'n', '<leader>p', '"+p', { silent = true }, 'Clipboard', 'paste_from_clipboard3', 'Paste from system clipboard' )
+Mapper.map( 'n', '<leader>P', '"+p', { silent = true }, 'Clipboard', 'paste_from_clipboard4', 'Paste from system clipboard' )
 
--- Use :W for saving as root
--- vim.cmd( [[command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!]] )
-
--- alternate between last two files in the same window
-vim.keymap.set( "n", '<leader>O', '<C-^>' )
-
--- -- don't do anything if LSP isn't attached and doesn't provide header/source switch operation
-vim.keymap.set( 'n', '<leader>o', '<nop>' )
-
--- Use J and K to move selected text
-vim.keymap.set( "v", "J", ":m '>+1<CR>gv=gv" )
-vim.keymap.set( "v", "K", ":m '<-2<CR>gv=gv" )
-
--- Copy, cut and paste using system clipboard in visual mode
-vim.keymap.set( "x", "<leader>Y", '"+y', { silent = true } )
-vim.keymap.set( "x", "<leader>y", '"+y', { silent = true } )
-vim.keymap.set( "n", "<leader>Y", '"+y', { silent = true } )
-vim.keymap.set( "n", "<leader>y", '"+y', { silent = true } )
-vim.keymap.set( "x", "<leader>D", '"+d', { silent = true } )
-vim.keymap.set( "x", "<leader>p", '"+p', { silent = true } )
-vim.keymap.set( "x", "<leader>P", '"+P', { silent = true } )
-vim.keymap.set( "n", "<leader>p", '"+p', { silent = true } )
-vim.keymap.set( "n", "<leader>P", '"+P', { silent = true } )
-
--- Center cursor when doing half page jumps / search
-vim.keymap.set( "n", "<C-d>", "<C-d>zz" )
-vim.keymap.set( "n", "<C-u>", "<C-u>zz" )
-vim.keymap.set( "n", "n",     "nzzzv"   )
-vim.keymap.set( "n", "N",     "Nzzzv"   )
-
--- don't replace pastebuffer with selected text when pasting in visual mode
-vim.keymap.set( "x", "p", [["_dP]], { silent = true } )
-
--- turn off search highlights
-vim.keymap.set( "n", "<leader>h", vim.cmd.noh, { silent = true } )
-
--- synchronize syntax engine
-vim.keymap.set( "n", "<leader>ss", [[:syntax sync fromstart<cr>]] )
+Mapper.map( 'x', 'p', [["_dP]], { silent = true }, 'Clipboard', 'clipboard_dont_replace_buffer', 'Do not replace pastebuffer with selected text when pasting in visual mode' )
 
 -- j and k should enter wrapped lines
 vim.cmd(
@@ -62,14 +40,8 @@ vim.cmd(
     ]]
 )
 
--- Select all in normal mode
-vim.keymap.set( "n", "<leader><c-a>", "ggVG" )
-
--- Pretty-print the JSON
-vim.keymap.set( "n", "<leader>jp", [[:%!python -m json.tool<cr>]] )
-
--- Conan update
-vim.keymap.set( "n", "<leader>cu", [[:sp term://python3 -m mbconan %<cr>]] )
+-- Use :W for saving as root
+vim.cmd( [[command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!]] )
 
 vim.cmd([[
     " Generic autocommands

@@ -1,4 +1,5 @@
-vim.keymap.set( "x", "<leader>a", [[:Tabularize /]] )
+Mapper.map( 'x', '<leader>a', [[:Tabularize /]], {}, 'Tabular', 'tabularize', 'Vertical alignment' )
+
 vim.cmd([[
     augroup tabularizeautocommands
         au!
