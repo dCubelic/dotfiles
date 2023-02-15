@@ -11,8 +11,6 @@ Mapper.map( 'n', '<leader><c-a>', 'ggVG'                                 , { sil
 Mapper.map( 'n', '<leader>jp'   , [[:%!python -m json.tool<cr>]]         , { silent = true }, 'Utils', 'prettify_json'        , 'Pretty-print JSON'                                   )
 Mapper.map( 'n', '<leader>cu'   , [[:sp term://python3 -m mbconan %<cr>]], { silent = true }, 'Utils', 'mbconan'              , 'Conan update'                                        )
 
-Mapper.map( 'n', '<leader>o', '<nop>', { silent = true }, 'LSP', 'ignore_header_source_switch', 'Ignore header/source switch if LSP is not attached' )
-
 Mapper.map( 'v', 'J'    , ":m '>+1<CR>gv=gv", { silent = true }, 'Navigation', 'move_selected_text_up'    , 'User J to move selected text down'            )
 Mapper.map( 'v', 'K'    , ":m '<-2<CR>gv=gv", { silent = true }, 'Navigation', 'move_selected_text_down'  , 'User K to move selected text up'              )
 Mapper.map( 'n', '<C-d>', '<C-d>zz'         , { silent = true }, 'Navigation', 'center_cursor_down'       , 'Center cursor when doing half page jump down' )
