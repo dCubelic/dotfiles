@@ -5,7 +5,7 @@ local params = {
             build_type = 'release', -- default build type, can be changed using `:Task set_module_param cmake build_type`.
             build_kit = 'clang',  -- default build kit, can be changed using `:Task set_module_param cmake build_kit`.
             dap_name = 'codelldb', -- DAP configuration name from `require('dap').configurations`. If there is no such configuration, a new one with this name as `type` will be created.
-            build_dir = '{home}/Work/Microblink/Builds/{project_name}/{build_kit}/{build_type}',
+            build_dir = '/Users/nb-dcubelic/Work/Microblink/Builds/{project_name}/{build_kit}/{build_type}',
             cmake_kits_file = vim.api.nvim_get_runtime_file( 'cmake_kits.json', false )[ 1 ], -- set path to JSON file containing cmake kits
             cmake_build_types_file = vim.api.nvim_get_runtime_file( 'cmake_build_types.json', false )[ 1 ], -- set path to JSON file containing cmake kits
             clangd_cmdline = { 'clangd', '--background-index', '--clang-tidy', '--header-insertion=never', '--completion-style=detailed', '--offset-encoding=utf-8', '--pch-storage=memory', '--cross-file-rename', '-j=4' }, -- command line for invoking clangd - this array will be extended with --compile-commands-dir and --query-driver after each cmake configure with parameters inferred from build_kit, build_type and build_dir

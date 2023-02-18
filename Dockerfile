@@ -47,9 +47,6 @@ RUN cargo install bat exa fd-find ripgrep && \
 RUN python3 -m pip install --upgrade pip conan flake8 python-lsp-server tqdm
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-# add ctf user
-RUN useradd -ms /bin/zsh ctf
-
 # Add the SSH public keys of github server to the known hosts
 RUN mkdir -p -m 0700 /root/.ssh && ssh-keyscan github.com >> /root/.ssh/known_hosts
 
@@ -62,13 +59,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y exiftool binwalk foremost 
 RUN pip install pyCryptoDome z3-solver
 
 # setup dotfiles
-RUN rm -rf /home/ctf/dotfiles
-RUN --mount=type=ssh git clone --depth=1 'git@github.com:dCubelic/dotfiles.git' /home/ctf/dotfiles
-RUN mkdir /home/ctf/.config
-RUN chown -R ctf:ctf /home/ctf/dotfiles /home/ctf/.config
+RUN rm -rf /root/dotfiles
+RUN mkdir /root/dotfiles
+RUN mkdir /root/.config
+COPY nvim /root/dotfiles/nvim
+COPY install.sh p10k.zsh tmux.conf zshrc /root/dotfiles/
 
-USER ctf
-WORKDIR /home/ctf/
+WORKDIR /root/
 
 RUN ./dotfiles/install.sh
 
@@ -79,6 +76,6 @@ RUN pip install --upgrade pwntools
 RUN git clone https://github.com/longld/peda.git ~/peda && \
     echo "source ~/peda/peda.py" >> ~/.gdbinit
 
-WORKDIR /home/ctf/ctfs
+WORKDIR /root/ctfs
 
 ENTRYPOINT zsh

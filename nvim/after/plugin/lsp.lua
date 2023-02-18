@@ -72,7 +72,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
             fallback()
         end
     end, { 'i', 's' }),
-    [ "S-<Tab>" ] = cmp.mapping( function( fallback )
+    [ "<S-Tab>" ] = cmp.mapping( function( fallback )
         if cmp.visible() then
             cmp.select_prev_item()
         elseif luasnip.jumpable( -1 ) then
@@ -121,4 +121,4 @@ vim.diagnostic.config({
     virtual_text = true,
 })
 
-Mapper.map( 'n', '<leader>o', [[:LspRestart<cr>]], opts, 'LSP', 'lsp_restart', 'Restart LSP' )
+Mapper.map( 'n', '<leader>yy', [[:LspRestart<cr>]], opts, 'LSP', 'lsp_restart', 'Restart LSP' )

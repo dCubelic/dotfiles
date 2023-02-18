@@ -11,10 +11,10 @@ return
 
             Mapper = require("nvim-mapper")
 
-            Mapper.map( 'n', '{', '<cmd>BufferPrevious<cr>', { silent = true }, 'Barbar', 'barbar_previous_tab' , 'Move to previous tab' )
-            Mapper.map( 'n', '}', '<cmd>BufferNext<cr>'    , { silent = true }, 'Barbar', 'barbar_next_tab'     , 'Move to next tab'     )
-            Mapper.map( 'n', '”', '<cmd>BufferMoveNext<cr>', { silent = true }, 'Barbar', 'barbar_move_previous', 'Reorder to previous'  )
-            Mapper.map( 'n', '’', '<cmd>BufferMoveNext<cr>', { silent = true }, 'Barbar', 'barbar_move_next'    , 'Reorder to next'      )
+            Mapper.map( 'n', '{', '<cmd>BufferPrevious<cr>'    , { silent = true }, 'Barbar', 'barbar_previous_tab' , 'Move to previous tab' )
+            Mapper.map( 'n', '}', '<cmd>BufferNext<cr>'        , { silent = true }, 'Barbar', 'barbar_next_tab'     , 'Move to next tab'     )
+            Mapper.map( 'n', '”', '<cmd>BufferMovePrevious<cr>', { silent = true }, 'Barbar', 'barbar_move_previous', 'Reorder to previous'  )
+            Mapper.map( 'n', '’', '<cmd>BufferMoveNext<cr>'    , { silent = true }, 'Barbar', 'barbar_move_next'    , 'Reorder to next'      )
 
             Mapper.map( 'n', '¡', '<Cmd>BufferGoto 1<CR>', { silent = true }, 'Barbar', 'select_tab_1'   , 'Select tab in position 1' )
             Mapper.map( 'n', '™', '<Cmd>BufferGoto 2<CR>', { silent = true }, 'Barbar', 'select_tab_2'   , 'Select tab in position 2' )
