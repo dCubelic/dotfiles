@@ -2,6 +2,7 @@ return
 {
     -- Displays indentation levels
     'lukas-reineke/indent-blankline.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
         vim.opt.list = true
         require( "indent_blankline" ).setup {

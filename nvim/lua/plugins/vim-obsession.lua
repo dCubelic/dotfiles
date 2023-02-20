@@ -2,6 +2,7 @@ return
 {
     -- Supports vim session saving and restoring
     'tpope/vim-obsession',
+    event = { 'VimEnter' },
     config = function()
         vim.cmd([[
         set sessionoptions+=globals

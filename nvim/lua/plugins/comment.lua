@@ -3,8 +3,7 @@ return
     -- Comment/uncomment support for various languages
     {
         'numToStr/Comment.nvim',
-        lazy = true,
-        keys = { { '<leader>;' } },
+        event = { 'BufReadPost', 'BufNewFile' },
         config = function()
             require( 'Comment' ).setup({
                 toggler = {

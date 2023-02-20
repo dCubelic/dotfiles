@@ -3,7 +3,6 @@ return
     -- File manager for neovim
     {
         'nvim-tree/nvim-tree.lua',
-        lazy = true,
         keys = { { '<leader>n' }, { '<leader>N' } },
         dependencies = {
             'nvim-tree/nvim-web-devicons'
@@ -16,13 +15,9 @@ return
                     update_cwd  = false,
                     ignore_list = {}
                 },
-                view = {
-                    side = 'right',
-                    width = '200'
-                }
             })
 
-            local mapper           = require( 'nvim-mapper'     )
+            local mapper = require( 'nvim-mapper' )
 
             mapper.map( 'n', '<leader>n', vim.cmd.NvimTreeToggle  , {}, 'NvimTree', 'nvim_tree_toggle', 'Toggle NvimTree'            )
             mapper.map( 'n', '<leader>N', vim.cmd.NvimTreeFindFile, {}, 'NvimTree', 'nvim_find_file'  , 'NvimTree find current file' )

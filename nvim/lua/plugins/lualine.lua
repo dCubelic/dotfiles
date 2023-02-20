@@ -4,12 +4,13 @@ return
     {
         'nvim-lualine/lualine.nvim',
         dependencies = {  'nvim-tree/nvim-web-devicons' },
+        event = 'VeryLazy',
         config = function()
-            local Path = require( 'plenary.path' )
             local lualine = require( 'lualine' )
-            local ProjectConfig = require( 'tasks.project_config' )
 
             local function cmakeStatus()
+                local ProjectConfig = require( 'tasks.project_config' )
+                local Path = require( 'plenary.path' )
                 local cmake_config = ProjectConfig:new()[ 'cmake_kits' ]
                 local cmakelists_dir = cmake_config.source_dir and cmake_config.source_dir or vim.loop.cwd()
                 if ( Path:new( cmakelists_dir ) / 'CMakeLists.txt' ):exists() then

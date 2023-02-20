@@ -26,7 +26,7 @@ return
                 })
             end, {}, 'Telescope', 'telescope_current_buffer', 'Fuzzily search in current buffer' )
 
-            local telescope = require( 'telescope' )
+            local telescope = require( 'telescope'         )
             local actions   = require( 'telescope.actions' )
 
             telescope.load_extension( 'fzf'            )

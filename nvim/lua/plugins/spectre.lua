@@ -4,6 +4,9 @@ return
     {
         'windwp/nvim-spectre',
         dependencies = { 'nvim-lua/plenary.nvim' },
+        keys = {
+            '<leader>sr'
+        },
         config = function()
             require( 'spectre' ).setup({})
 
