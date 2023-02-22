@@ -61,8 +61,9 @@ vim.cmd([[
         " Automatically remove all trailing whitespace on file save
         autocmd BufWritePre * %s/\s\+$//e
 
-        " search for errors in qflist
+        " search for errors and warnings in qflist
         au BufWinEnter quickfix nmap <buffer> E /error:<CR>
+        au BufWinEnter quickfix nmap <buffer> W /warning:<CR>
 
     augroup END
 

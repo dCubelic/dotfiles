@@ -26,10 +26,6 @@ return
             },
             { 'rafamadriz/friendly-snippets' },
         },
-        -- event = "InsertEnter",
-        -- keys = {
-        --     '<leader>y',
-        -- },
         config = function()
 
             local lsp = require( 'lsp-zero' )

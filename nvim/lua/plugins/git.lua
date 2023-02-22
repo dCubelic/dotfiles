@@ -11,6 +11,7 @@ return
         },
         cmd = {
             'Git',
+            'Gitf',
             'GitFF',
         },
         keys = {
