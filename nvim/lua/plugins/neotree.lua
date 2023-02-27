@@ -52,8 +52,8 @@ return {
 
             local mapper = require( 'nvim-mapper' )
 
-            mapper.map( 'n', '<leader>n', vim.cmd.NeoTreeShowToggle  , {}, 'NeoTree', 'neo_tree_show'  , 'Toggle NeoTree' )
-            mapper.map( 'n', '<leader>N', vim.cmd.NeoTreeRevealToggle, {}, 'NeoTree', 'neo_tree_reveal', 'NeoTree reveal' )
+            mapper.map( 'n', '<leader>N', vim.cmd.NeoTreeShowToggle  , {}, 'NeoTree', 'neo_tree_show'  , 'Toggle NeoTree' )
+            mapper.map( 'n', '<leader>n', vim.cmd.NeoTreeRevealToggle, {}, 'NeoTree', 'neo_tree_reveal', 'NeoTree reveal' )
         end
     }
 }

@@ -13,6 +13,8 @@ return
         config = function()
             local builtin = require( 'telescope.builtin' )
 
+            local Mapper = require( 'nvim-mapper' )
+
             Mapper.map( 'n', '<leader>F', builtin.git_files , {}, 'Telescope', 'telescope_search_git'  , 'Search git files' )
             Mapper.map( 'n', '<leader>f', builtin.find_files, {}, 'Telescope', 'telescope_search_files', 'Search files'     )
             Mapper.map( 'n', '<leader>b', builtin.buffers   , {}, 'Telescope', 'telescope_buffers'     , 'Search buffers'   )
