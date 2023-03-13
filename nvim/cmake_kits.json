@@ -37,11 +37,11 @@
        "query_driver" : "~/.conan/data/AndroidNdk/r25b/microblink/stable/package/13033aa1a9db6bdc6849cb2d5012d7a6b76359f5/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++",
        "generator": "Ninja"
    },
-   "emscripten-3.1.17-advanced-simd": {
-       "toolchain_file": "~/.conan/data/emsdk_installer/3.1.17/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+   "emscripten-3.1.31-advanced-simd": {
+       "toolchain_file": "~/.conan/data/emsdk_installer/3.1.31/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
        "environment_variables": {
-           "EM_CONFIG": "/Users/dodo/.conan/data/emsdk_installer/3.1.17/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/.emscripten",
-           "EM_CACHE": "/Users/dodo/.conan/data/emsdk_installer/3.1.17/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/.emscripten_cache"
+           "EM_CONFIG": "/Users/nb-dcubelic/.conan/data/emsdk_installer/3.1.31/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/.emscripten",
+           "EM_CACHE": "/Users/nb-dcubelic/.conan/data/emsdk_installer/3.1.31/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/.emscripten_cache"
        },
        "cmake_usr_args": {
            "MB_EMSCRIPTEN_EMRUN_BROWSER": "chrome",
@@ -51,7 +51,7 @@
            "MB_EMSCRIPTEN_ADVANCED_FEATURES": "ON",
            "MB_EMSCRIPTEN_SIMD": "ON"
        },
-       "query_driver" : "~/.conan/data/emsdk_installer/3.1.17/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/upstream/emscripten/em++",
+       "query_driver" : "~/.conan/data/emsdk_installer/3.1.31/microblink/stable/package/743cf0321be3152777da4d05247a66d1552e70a2/upstream/emscripten/em++",
        "generator": "Ninja"
    }
 }

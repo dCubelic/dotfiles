@@ -1,6 +1,6 @@
 # build command:
 # docker build -t ctf --ssh default .
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ENV LC_ALL=en_US.UTF-8                                   \
     TERM=xterm-256color                                  \
@@ -60,14 +60,14 @@ RUN pip install pyCryptoDome z3-solver
 
 # setup dotfiles
 RUN rm -rf /root/dotfiles
-RUN mkdir /root/dotfiles
+RUN git clone https://github.com/dCubelic/dotfiles.git
 RUN mkdir /root/.config
-COPY nvim /root/dotfiles/nvim
-COPY install.sh p10k.zsh tmux.conf zshrc /root/dotfiles/
+# COPY nvim /root/dotfiles/nvim
+# COPY install.sh p10k.zsh tmux.conf zshrc /root/dotfiles/
 
 WORKDIR /root/
 
-RUN ./dotfiles/install.sh
+RUN /dotfiles/install.sh
 
 # pwntools
 RUN pip install --upgrade pwntools
